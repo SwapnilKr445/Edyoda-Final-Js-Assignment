@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="fontawesome-free-6.4.2-web/css/all.css">
+
+    <title>assingment_3_js</title>
+    <style>
+        p {
+            font-family: Montserrat, sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1b1919;
+            font-style: normal;
+            margin-left: 70px;
+
+
+
+
+        }
+
+        #main_section {
+            /* border: 5px solid darkred; */
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 0px;
+        }
+
+        .product_bx {
+            position: relative;
+            box-shadow: 1px 4px 8px 0 rgba(0, 0, 0, 0.2), 1px 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+            height: 420px;
+            width: 220px;
+            /* border: 3px solid navy; */
+
+            font-size: 20px;
+            margin: 15px;
+            padding: 0px;
+            border-radius: 2%;
+        }
+
+        img {
+            height: 280px;
+            width: 100%;
+            padding: 0px;
+            margin-top: 0px;
+
+        }
+
+        .product_bx:hover {
+
+            background-color: white;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.358), 0 6px 20px 0 rgba(0, 0, 0, 0.325);
+            cursor: pointer;
+        }
+
+        #main_section1 {
+
+            /* border: 5px solid darkred; */
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 0px;
+
+
+        }
+
+        h3 {
+            font-family: Montserrat, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: #1b1919;
+            font-style: normal;
+            margin-left: 15px;
+
+            position: absolute;
+            top: 290px;
+        }
+
+        h4 {
+            font-family: Montserrat, sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #6e6e6e;
+            font-style: normal;
+            margin-left: 15px;
+            margin-top: 70px;
+            margin-bottom: 10px;
+
+        }
+
+        h5 {
+            font-family: Montserrat, sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #009688;
+            font-style: normal;
+            margin-left: 15px;
+            margin-top: 10px;
+
+
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        a:visited {
+            text-decoration: none;
+        }
+
+
+        @media screen and (max-width: 768px) {
+            .product_bx {
+                min-width: 100px;
+            }
+        }
+
+
+        #topbar {
+            width: 100%;
+            box-shadow: 0 2px 5px #ccc;
+            background-color: white;
+            z-index: 10;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+            padding: 16px 8%;
+        }
+
+        #left-menu {
+            display: inline-flex;
+            justify-content: start;
+            text-align: center;
+        }
+
+        #logo {
+            font-size: 36px;
+            text-transform: uppercase;
+            font-weight: 400;
+            margin-right: 16px;
+        }
+
+        #logo>a {
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+        }
+
+        #logo span {
+            font-weight: 800;
+            font-family: sans-serif;
+        }
+
+        #left-menu>a {
+            text-decoration: none;
+            color: black;
+            margin-left: 32px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: 19px;
+            font-family: sans-serif;
+        }
+
+        #search-wrapper {
+            width: 50%;
+            max-width: 350px;
+            position: relative;
+        }
+
+        #search-wrapper>i {
+            position: absolute;
+            color: #999;
+            font-size: 18px;
+            top: 50%;
+            left: 18px;
+            transform: translateY(-50%);
+        }
+
+        /* .fa-solid, .fas{
+    font-weight: 900;
+}
+.fa-magnifying-glass::before, .fa-search:before{
+    content: "\f002";
+} */
+        #search-box {
+            width: 100%;
+            border: 1px solid rgb(245, 242, 242);
+            background-color: rgb(245, 242, 242);
+            box-sizing: border-box;
+            padding: 10px 24px 8px 48px;
+            color: black;
+            outline: none;
+        }
+
+        #right-menu {
+            display: inline-flex;
+            justify-content: end;
+            align-items: center;
+        }
+
+        #cart-wrapper {
+            position: relative;
+            margin-right: 32px;
+        }
+
+        #cart-wrapper i {
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        #right-menu>p {
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+        }
+
+        #card-count {
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            margin: 0;
+            box-sizing: border-box;
+            text-align: center;
+            font-weight: 600;
+            background-color: #009688;
+            color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: -12px;
+            right: -12px;
+
+        }
+
+        #right-menu>img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+
+        }
+
+        /* for slide */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 1400px;
+            position: relative;
+            margin-top: 26px;
+            margin-left: 56px;
+
+
+        }
+
+        img {
+            object-fit: cover;
+        }
+
+
+
+        /* The dots/bullets/indicators */
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active {
+            background-color: #717171;
+        }
+
+        /* Fading animation */
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+            .text {
+                font-size: 11px
+            }
+        }
+
+        /* slide end */
+
+
+
+        footer {
+            width: 100%;
+            background-color: #1c1b1e;
+            display: flex;
+            justify-content: center;
+            box-sizing: border-box;
+            padding: 4% 8%;
+        }
+
+        footer>div:first-of-type {
+            padding-left: 0;
+        }
+
+        footer div {
+            padding-right: 60px;
+        }
+
+        .footer-heading {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 16px;
+            color: white;
+            opacity: 0.9;
+            letter-spacing: 1px;
+
+        }
+
+        .footer-link {
+            text-decoration: none;
+            color: white;
+            display: block;
+            margin-top: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 14px;
+            opacity: 0.8;
+            margin-left: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="topbar">
+        <div id="left-menu">
+            <div id="logo"><a href="js_final_1.html"><span>Shop</span>lane</a></div>
+            <a href="#main_section">Clothing</a>
+            <a href="#main_section1">Accessories</a>
+        </div>
+        <div id="search-wrapper">
+            <i class="fa-solid fa-magnifying-glass" style="color: #8c97ab;"></i>
+            <input id="search-box" type="text" name="search" placeholder="Search for Clothing and Accessories">
+        </div>
+
+        <div id="right-menu">
+            <div id="cart-wrapper">
+                <h4 style="margin-top: 20px; margin-bottom: 0px; border: 1px solid green; border-radius: 50%; width: 17px;text-align: center;background-color: green; color: white;"
+                    id="cart-count">5</h4>
+                <a href="checkout.html"><i style="color: black; margin-top: -10px;" class="fas fa-shopping-cart"
+                        aria-hidden="true"></i></a>
+            </div>
+            <img src="https://test-hosting-8f9bf.web.app/assets/avatar.jpg">
+        </div>
+    </nav>
+    <br></br>
+    <br></br>
+
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+
+            <img src="https://i.imgur.com/sfjg9R8.png" style="width:100%">
+
+        </div>
+
+        <div class="mySlides fade">
+
+            <img src="https://i.imgur.com/p0wdadG.png"  style="width:100%">
+
+        </div>
+
+        <div class="mySlides fade">
+
+            <img src="https://i.imgur.com/p0wdadG.png" style="width:100%">
+
+        </div>
+
+        <div class="mySlides fade">
+
+            <img src="https://i.imgur.com/KtGxwnN.png" style="width:100%">
+
+        </div>
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+    </script>
+
+    <br></br>
+
+    <p>Clothing for Men and Women</p>
+
+    <section id="main_section">
+
+    </section>
+
+    <br><br />
+    <br><br />
+    <p>Accessories for Men and Women</p>
+    <section id="main_section1">
+
+    </section>
+
+
+    <footer>
+        <div>
+            <p class="footer-heading">Online Store</p>
+            <a href="/" class="footer-link">Men Clothing</a>
+            <a href="/" class="footer-link">Women Clothing</a>
+            <a href="/" class="footer-link">Men Accessories</a>
+            <a href="/" class="footer-link">Women Accessories</a>
+        </div>
+        <div>
+            <p class="footer-heading">Helpful Links</p>
+            <a href="/" class="footer-link">Home</a>
+            <a href="/" class="footer-link">About</a>
+            <a href="/" class="footer-link">Contact</a>
+        </div>
+        <div>
+            <p class="footer-heading">Partners</p>
+            <a href="/" class="footer-link">Zara</a>
+            <a href="/" class="footer-link">Pantaloons</a>
+            <a href="/" class="footer-link">Levis</a>
+            <a href="/" class="footer-link">UCB</a>
+            <a href="/" class="footer-link">+ Many More</a>
+        </div>
+        <div>
+            <p class="footer-heading">Address</p>
+            <p href="/" class="footer-link">Building 101</p>
+            <p href="/" class="footer-link">Central Avenue</p>
+            <p href="/" class="footer-link">LA - 902722</p>
+            <p href="/" class="footer-link">United States</p>
+        </div>
+    </footer>
+    <script src="js_final.js"></script>
+</body>
+
+</html>

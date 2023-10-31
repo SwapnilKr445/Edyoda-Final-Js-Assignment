@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google Sans">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="fontawesome-free-6.4.2-web/css/all.css">
+
+  <title>Order Conformation</title>
+  <style>
+    #topbar {
+      width: 100%;
+      box-shadow: 0 2px 5px #ccc;
+      background-color: white;
+      z-index: 10;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 16px 8%;
+    }
+
+    #left-menu {
+      display: inline-flex;
+      justify-content: start;
+      text-align: center;
+    }
+
+    #logo {
+      font-size: 36px;
+      text-transform: uppercase;
+      font-weight: 400;
+      margin-right: 16px;
+    }
+
+    #logo>a {
+      text-decoration: none;
+      color: black;
+      cursor: pointer;
+      font-family: sans-serif;
+    }
+
+    #logo span {
+      font-weight: 800;
+      font-family: sans-serif;
+    }
+
+    #left-menu>a {
+      text-decoration: none;
+      color: black;
+      margin-left: 32px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-top: 19px;
+      font-family: sans-serif;
+    }
+
+    #search-wrapper {
+      width: 50%;
+      max-width: 350px;
+      position: relative;
+    }
+
+    #search-wrapper>i {
+      position: absolute;
+      color: #999;
+      font-size: 18px;
+      top: 50%;
+      left: 18px;
+      transform: translateY(-50%);
+    }
+
+    /* .fa-solid, .fas{
+    font-weight: 900;
+}
+.fa-magnifying-glass::before, .fa-search:before{
+    content: "\f002";
+} */
+    #search-box {
+      width: 100%;
+      border: 1px solid rgb(245, 242, 242);
+      background-color: rgb(245, 242, 242);
+      box-sizing: border-box;
+      padding: 10px 24px 8px 48px;
+      color: black;
+      outline: none;
+    }
+
+    #right-menu {
+      display: inline-flex;
+      justify-content: end;
+      align-items: center;
+    }
+
+    #cart-wrapper {
+      position: relative;
+      margin-right: 32px;
+    }
+
+    #cart-wrapper i {
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    #right-menu>p {
+      display: block;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+    }
+
+    #card-count {
+      width: 18px;
+      height: 18px;
+      font-size: 12px;
+      margin: 0;
+      box-sizing: border-box;
+      text-align: center;
+      font-weight: 600;
+      background-color: #009688;
+      color: white;
+      border-radius: 50%;
+      position: absolute;
+      top: -12px;
+      right: -12px;
+
+    }
+
+    #right-menu>img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+
+    }
+
+    h1 {
+      font-family: "Open Sans", sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 36px;
+      color: #000000;
+      margin: 0px;
+      margin-bottom: 48px;
+      margin-top: 90px;
+      margin-left: 135px;
+    }
+
+    .section-heading {
+      font-family: sans-serif;
+      font-size: 24px;
+      color: rgba(0, 0, 0, 0.8);
+      font-weight: 400;
+      margin: 0;
+      margin-bottom: 16px;
+      margin-left: 135px;
+    }
+
+    #main {
+      
+      width: 80%;
+      margin-left: 134px;
+      margin-right: 10px;
+      position: relative;
+
+
+    }
+
+    .left_div {
+      /* border: 1px solid black; */
+      width: 600px;
+      height: 141.46px;
+      display: flex;
+      box-sizing: border-box;
+      box-shadow: 0 2px 5px #ccc;
+      border-radius: 5px;
+      background-color: white;
+      max-width: 600px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .div3 {
+
+      width: 96px;
+      height: 111px;
+    }
+
+    .img1 {
+      width: 96px;
+      height: 111px;
+    }
+
+    .div4 {
+
+      width: 400px;
+      height: 111px;
+      margin-left: 20px;
+    }
+
+    .h_tag {
+      margin-top: 0px;
+      font-weight: 600;
+      margin: 0;
+      margin-bottom: 4px;
+      font-size: 18px;
+      font-family: sans-serif;
+    }
+
+    .p_tag {
+      font-weight: 400;
+      font-family: sans-serif;
+      font-size: 17px;
+      color: #000000;
+      font-style: normal;
+      margin-top: 7px;
+    }
+
+    .p1_tag {
+      font-weight: 400;
+      font-family: sans-serif;
+      font-size: 17px;
+      color: #000000;
+      font-style: normal;
+      margin-top: -11px;
+
+    }
+
+    .right_div {
+      width: 570px;
+      height: 200px;
+      right: 0;
+      top: 0;
+      position: absolute;
+     padding: 10px;
+
+      /* height: fit-content; */
+
+      box-sizing: border-box;
+      box-shadow: 0 2px 5px #ccc;
+      border-radius: 5px;
+
+
+    }
+    .h1_tag1{
+      font-size: 24px;
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 400;
+    margin: 0px;
+    margin-top: 20px;
+    margin-bottom: 16px;
+    }
+    .para{
+      font-size: 16px;
+      font-family: sans-serif;
+      font-weight: 400;
+      color: #000000;
+      font-style:normal ;
+    }
+    .span1{
+      font-weight: 700;
+      font-size: 25px;
+      font-family: sans-serif;
+      position: absolute;
+      top: 67px;
+      left: 100px;
+    }
+  .swap{
+    height: 56px;
+    width: 170px;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+      right: 47.2%;
+      color: #fff;
+      padding: 10px 20px;
+      letter-spacing: 2px;
+      background-color: #009688;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgb(0 0 0 / 50%);
+  }
+/* footer */
+
+footer {
+      width: 98%;
+      background-color: #1c1b1e;
+      display: flex;
+      justify-content: center;
+      box-sizing: border-box;
+      padding: 4% 8%;
+      margin-right: px;
+      margin-left: 15px;
+    }
+
+    footer>div:first-of-type {
+      padding-left: 0;
+    }
+
+    footer div {
+      padding-right: 60px;
+    }
+
+    .footer-heading {
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 16px;
+      color: white;
+      opacity: 0.9;
+      letter-spacing: 1px;
+
+    }
+
+    .footer-link {
+      text-decoration: none;
+      color: white;
+      display: block;
+      margin-top: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: 14px;
+      opacity: 0.8;
+      margin-left: 0px;
+    }
+.checkout{
+    width: 1500px;
+    height: 400px;
+   
+    display: block;
+    position: relative;
+   justify-content: center;
+   text-align: center;
+   
+    margin-top: 50px;
+}
+
+.check img{
+    height: 146px;
+    width: 146px;
+    position: absolute;
+    top: 100px;
+    left: 700px;
+    animation: crescendo 1.5s alternate infinite ease-in;
+
+   
+}
+
+@keyframes crescendo {
+  0%   {transform: scale(.8);}
+  100% {transform: scale(1.3);}
+}
+.para{
+  font-family: "Google Sans", sans-serif;
+  font-size: 26px;
+  font-weight: bold;
+  color: black;
+  left: 620px;
+  top: 250px;
+  position: absolute;
+}
+h5{
+  font-family: "Google Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: black;
+  position: absolute;
+  left: 640px;
+  top: 290px;
+
+}
+  </style>
+</head>
+
+<body>
+  <nav id="topbar">
+    <div id="left-menu">
+      <div id="logo"><a href="js_final_1.html"><span>Shop</span>lane</a></div>
+      <a href="#main_section">Clothing</a>
+      <a href="#main_section1">Accessories</a>
+    </div>
+    <div id="search-wrapper">
+      <i class="fa-solid fa-magnifying-glass" style="color: #8c97ab;"></i>
+      <input id="search-box" type="text" name="search" placeholder="Search for Clothing and Accessories">
+    </div>
+
+    <div id="right-menu">
+      <div id="cart-wrapper">
+        <h4
+          style="margin-top: 20px; font-size: 15px; margin-bottom: 0px; border: 1px solid green; border-radius: 50%; width:17px;text-align: center;background-color: green; color: white;"
+          id="cart-count">5</h4>
+        <a href="checkout.html"><i style="color: black; margin-top: -10px; margin-left: -11px;"
+            class="fas fa-shopping-cart" aria-hidden="true"></i></a>
+      </div>
+      <img src="https://test-hosting-8f9bf.web.app/assets/avatar.jpg">
+    </div>
+  </nav>
+
+  <br></br>
+ <div class="checkout">
+  <div class="check">
+   <img src="https://cdn-icons-png.flaticon.com/512/6459/6459980.png"> </div>
+   <p class="para">Order Placed Successfully!!</p>
+   <h5>We have sent you an email with order details</h5>
+ </div>
+<br></br>
+<footer>
+  <div>
+      <p class="footer-heading">Online Store</p>
+      <a href="/" class="footer-link">Men Clothing</a>
+      <a href="/" class="footer-link">Women Clothing</a>
+      <a href="/" class="footer-link">Men Accessories</a>
+      <a href="/" class="footer-link">Women Accessories</a>
+  </div>
+  <div>
+      <p class="footer-heading">Helpful Links</p>
+      <a href="/" class="footer-link">Home</a>
+      <a href="/" class="footer-link">About</a>
+      <a href="/" class="footer-link">Contact</a>
+  </div>
+  <div>
+      <p class="footer-heading">Partners</p>
+      <a href="/" class="footer-link">Zara</a>
+      <a href="/" class="footer-link">Pantaloons</a>
+      <a href="/" class="footer-link">Levis</a>
+      <a href="/" class="footer-link">UCB</a>
+      <a href="/" class="footer-link">+ Many More</a>
+  </div>
+  <div>
+      <p class="footer-heading">Address</p>
+      <p href="/" class="footer-link">Building 101</p>
+      <p href="/" class="footer-link">Central Avenue</p>
+      <p href="/" class="footer-link">LA - 902722</p>
+      <p href="/" class="footer-link">United States</p>
+  </div>
+</footer>
+
+
+  <script src="js_checkout.js"></script>
+</body>
+
+</html>
