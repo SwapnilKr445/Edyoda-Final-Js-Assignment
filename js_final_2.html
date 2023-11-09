@@ -173,12 +173,13 @@
       margin-top: 700px
     }
 
-    button {
+    .event {
+      width: 180px;
       position: absolute;
       font-size: 18px;
       font-weight: bold;
-      margin-top: 650px;
-      right: 47.2%;
+      margin-top: 270px;
+      right: 78%;
       color: #fff;
       padding: 10px 20px;
       letter-spacing: 2px;
@@ -191,6 +192,7 @@
 
     button:hover{
       box-shadow: 0 2px 10px rgba(233, 80, 80, 0.5);
+      cursor: pointer;
       
     }
 
@@ -404,7 +406,7 @@
       <div id="cart-wrapper">
         <h4
           style="margin-top: 20px; font-size: 15px; margin-bottom: 0px; border: 1px solid green; border-radius: 50%; width:17px;text-align: center;background-color: green; color: white;"
-          id="cart-count">5</h4>
+          id="cart-count" class="count">0</h4>
         <a href="js_checkout.html" target="_blank "><i style="color: black; margin-top: -10px; margin-left: -11px;"
             class="fas fa-shopping-cart" aria-hidden="true"></i></a>
       </div>
@@ -415,8 +417,9 @@
  
 
   <section id="main_section">
-   <a href="js_checkout.html" >
-     <button>Add to Cart</button> </a>
+
+   <!-- <button  class='addtocart'>Add to Cart</button> -->
+
   </section>
   </section>
   <br></br>
@@ -450,7 +453,12 @@
         <p href="/" class="footer-link">United States</p>
     </div>
 </footer>
-  <script src="js_final2.js"></script>
+
+  <script src="jquery-3.7.1.slim.js"></script>
+  <script src="js_final2.js">
+
+
+  </script>
 </body>
 
 </html>
