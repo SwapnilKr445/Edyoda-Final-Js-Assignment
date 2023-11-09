@@ -88,3 +88,26 @@ var productData = {
       this.className = "active";
     };
   }
+   var btn = document.createElement('button');
+   btn.className="event";
+   btn.innerHTML="Add to Cart"
+   div2.appendChild(btn);
+
+
+
+  $(document).ready(function(){
+    //create variable
+    var counts = 0;
+    $(".event").click(function () {
+    //to number and increase to 1 on each click
+       counts += +1;
+       $(".count").animate({
+    //show span with number
+                 opacity: 1
+             }, 300, function () {
+    //write number of counts into span
+                 $(this).text(counts);
+             });
+         }); 
+ });
+
